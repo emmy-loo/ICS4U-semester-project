@@ -1,3 +1,3 @@
-October: Researching for ideas, drafting an outline about the web
+October: Researching for ideas, drafting an outline of the web
 Dec- Jan (Winter break): Worked on 80% of the project (added the html, py files), basic features are done
 One week before the due date: adding more features
