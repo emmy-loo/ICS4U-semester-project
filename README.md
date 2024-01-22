@@ -10,7 +10,7 @@ To help users better organise their finance and keep track of their money. It is
   * Record expenses and set budget goals
   * Warns user when their expenses exceed budget
   * Breaks down your spending habits by categories
-  * Export your data directly into Excel
+  * Download your data directly into Excel
 
 ## Technology used
 HTML, a bit of Javascript with Flask on Python
