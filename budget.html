@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Budget Planning{% endblock %}
+
+{% block content %}
+  <h1 align="center">Budget Planning</h1>
+
+  <div class="container">
+    <form method="POST" action="{{ url_for('views.budget') }}">
+      <div class="form-group">
+        <label for="monthlySalary">Monthly Salary</label>
+        <input type="number" class="form-control" id="monthlySalary" name="monthlySalary" step="0.01" required>
+      </div>
+
+      <h2>Set Percentage Amount for Each Category</h2>
+
+      <div class="form-group">
+        <label for="travelPercentage">Travel Percentage</label>
+        <input type="number" class="form-control" id="travelPercentage" name="travelPercentage" step="0.01" min="0" max="100" required>
+      </div>
+
+      <div class="form-group">
+        <label for="groceriesPercentage">Groceries Percentage</label>
+        <input type="number" class="form-control" id="groceriesPercentage" name="groceriesPercentage" step="0.01" min="0" max="100" required>
+      </div>
+
+      <div class="form-group">
+        <label for="utilitiesPercentage">Utilities Percentage</label>
+        <input type="number" class="form-control" id="utilitiesPercentage" name="utilitiesPercentage" step="0.01" min="0" max="100" required>
+      </div>
+
+      <div class="form-group">
+        <label for="housingPercentage">Housing Percentage</label>
+        <input type="number" class="form-control" id="housingPercentage" name="housingPercentage" step="0.01" min="0" max="100" required>
+      </div>
+
+      <div class="form-group">
+        <label for="entertainmentPercentage">Entertainment Percentage</label>
+        <input type="number" class="form-control" id="entertainmentPercentage" name="entertainmentPercentage" step="0.01" min="0" max="100" required>
+      </div>
+
+
+      <div align="center">
+        <button type="submit" class="btn btn-primary">Set Budget</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+{% endblock %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+  <h1 align="center">Dashboard</h1>
+  <div class="container">
+    <h2>Last Five Expenses</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Date</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for expense in last_five_expenses %}
+          <tr>
+            <td>{{ expense.description }}</td>
+            <td>{{ expense.category }}</td>
+            <td>{{ expense.date.strftime('%Y-%m-%d') }}</td>
+            <td>${{ expense.amount }}</td>
+            <td>
+              <button type="button" class="close" onClick="deleteExpense({{ expense.id }})">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <p><a href="{{ url_for('views.all_expenses') }}">View all expenses history</a></p>
+
+    <h2>Total Expenses</h2>
+    <p>Total amount spent: ${{ total_expenses }}</p>
+    <br>
+    <div class="row">
+      <div class="col">
+          <h2>Expense Distribution</h2>
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th>Category</th>
+                      <th>Percentage of Total Expenses</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for category, percentage in expense_distribution.items() %}
+                      <tr>
+                          <td>{{ category }}</td>
+                          <td>{{ percentage }}%</td>
+                      </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col">
+        <p><a href="{{ url_for('views.download_excel', filename=excel_filename) }}">Download Excel</a></p>
+    </div>
+</div>
+  </div>
+{% endblock %}
+
